@@ -1,0 +1,1 @@
+// Clipboard copying utility

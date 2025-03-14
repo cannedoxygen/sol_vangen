@@ -1,0 +1,1 @@
+// Win98 style progress bar

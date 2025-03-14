@@ -1,0 +1,1 @@
+// Draggable window component

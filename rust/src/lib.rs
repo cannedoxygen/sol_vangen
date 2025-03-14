@@ -1,0 +1,1 @@
+// Rust implementation of Solana vanity generator

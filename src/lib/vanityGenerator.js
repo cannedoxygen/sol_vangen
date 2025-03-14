@@ -1,0 +1,1 @@
+// Address generation (JavaScript/WASM wrapper)

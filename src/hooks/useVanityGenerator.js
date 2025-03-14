@@ -1,0 +1,1 @@
+// Vanity address generator logic hook
