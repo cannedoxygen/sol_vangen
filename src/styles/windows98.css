@@ -1,0 +1,600 @@
+/* Windows98.css - Styling for the Windows 98-inspired interface */
+
+/* Base styles */
+:root {
+    --win98-bg: #c0c0c0;
+    --win98-text: #000000;
+    --win98-border-light: #ffffff;
+    --win98-border-dark: #808080;
+    --win98-border-darker: #404040;
+    --win98-button-face: #c0c0c0;
+    --win98-button-highlight: #ffffff;
+    --win98-button-shadow: #808080;
+    --win98-blue: #000080;
+    --win98-title-active: #000080;
+    --win98-title-text: #ffffff;
+  }
+  
+  /* Windows 98 background */
+  .win98-background {
+    background-color: var(--win98-bg);
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAIElEQVQoU2NkYGD4z4AAVK8PAhiZGBgYobL4FZBsAQBzDQgGvEcAkwAAAABJRU5ErkJggg==");
+    color: var(--win98-text);
+    font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Windows 98 desktop */
+  .windows98-desktop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  /* Windows 98 window */
+  .win98-window {
+    background-color: var(--win98-bg);
+    border: 2px solid;
+    border-color: var(--win98-border-light) var(--win98-border-darker) var(--win98-border-darker) var(--win98-border-light);
+    box-shadow: 1px 1px 0 0 var(--win98-border-dark);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    min-height: 150px;
+  }
+  
+  /* Window title bar */
+  .window-title-bar {
+    background-color: var(--win98-title-active);
+    color: var(--win98-title-text);
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    cursor: grab;
+  }
+  
+  .window-title-bar.dragging {
+    cursor: grabbing;
+  }
+  
+  .window-title {
+    font-weight: bold;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    padding: 0 4px;
+  }
+  
+  .window-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  /* Window controls */
+  .window-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .window-control {
+    width: 16px;
+    height: 14px;
+    margin-left: 2px;
+    border: 1px solid;
+    border-color: var(--win98-border-light) var(--win98-border-darker) var(--win98-border-darker) var(--win98-border-light);
+    background-color: var(--win98-button-face);
+    color: var(--win98-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .window-control:active {
+    border-color: var(--win98-border-darker) var(--win98-border-light) var(--win98-border-light) var(--win98-border-darker);
+  }
+  
+  /* Window content */
+  .window-content {
+    flex-grow: 1;
+    padding: 8px;
+    overflow: auto;
+    background-color: var(--win98-bg);
+    position: relative;
+  }
+  
+  /* Window resizers */
+  .window-resizer {
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .window-resizer-right {
+    width: 4px;
+    height: calc(100% - 10px);
+    right: 0;
+    top: 5px;
+    cursor: e-resize;
+  }
+  
+  .window-resizer-bottom {
+    width: calc(100% - 10px);
+    height: 4px;
+    bottom: 0;
+    left: 5px;
+    cursor: s-resize;
+  }
+  
+  .window-resizer-corner {
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+  }
+  
+  /* Win98 button */
+  .win98-button {
+    border: 2px solid;
+    border-color: var(--win98-border-light) var(--win98-border-darker) var(--win98-border-darker) var(--win98-border-light);
+    background-color: var(--win98-button-face);
+    padding: 4px 10px;
+    min-width: 75px;
+    font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    color: var(--win98-text);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .win98-button:active, .win98-button.pressed {
+    border-color: var(--win98-border-darker) var(--win98-border-light) var(--win98-border-light) var(--win98-border-darker);
+    padding-top: 5px;
+    padding-left: 11px;
+    padding-bottom: 3px;
+    padding-right: 9px;
+  }
+  
+  .win98-button:focus {
+    outline: 1px dotted black;
+    outline-offset: -4px;
+  }
+  
+  .win98-button.disabled {
+    color: var(--win98-border-dark);
+    text-shadow: 1px 1px 0 var(--win98-border-light);
+    cursor: default;
+  }
+  
+  .win98-button.with-icon .button-icon {
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Win98 input */
+  .win98-input-container {
+    margin-bottom: 8px;
+  }
+  
+  .win98-input-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+  
+  .win98-input-field {
+    position: relative;
+  }
+  
+  .win98-input {
+    border: 2px solid;
+    border-color: var(--win98-border-darker) var(--win98-border-light) var(--win98-border-light) var(--win98-border-darker);
+    background-color: white;
+    padding: 3px 5px;
+    font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .win98-input:focus {
+    outline: none;
+  }
+  
+  .win98-input-container.disabled .win98-input {
+    background-color: var(--win98-bg);
+    color: var(--win98-border-dark);
+  }
+  
+  .win98-input-error {
+    color: red;
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  
+  /* Win98 progress bar */
+  .win98-progress-container {
+    margin: 8px 0;
+  }
+  
+  .win98-progress-label {
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+  
+  .win98-progress {
+    height: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .win98-progress-track {
+    border: 2px solid;
+    border-color: var(--win98-border-darker) var(--win98-border-light) var(--win98-border-light) var(--win98-border-darker);
+    background-color: white;
+    height: 100%;
+    position: relative;
+  }
+  
+  .win98-progress-bar {
+    background-color: var(--win98-blue);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.1s linear;
+  }
+  
+  .win98-progress.indeterminate .win98-progress-bar {
+    transition: left 2s linear;
+  }
+  
+  .win98-progress-blocks {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .win98-progress-block {
+    flex: 1;
+    height: 100%;
+    background-color: var(--win98-border-light);
+    margin: 0 1px;
+  }
+  
+  .win98-progress-percentage {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 2px;
+  }
+  
+  /* Win98 message box */
+  .win98-message-box-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .win98-message-box {
+    border: 2px solid;
+    border-color: var(--win98-border-light) var(--win98-border-darker) var(--win98-border-darker) var(--win98-border-light);
+    background-color: var(--win98-bg);
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .message-box-title-bar {
+    background-color: var(--win98-title-active);
+    color: var(--win98-title-text);
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+  
+  .message-box-title {
+    font-weight: bold;
+    font-size: 11px;
+  }
+  
+  .message-box-close {
+    width: 16px;
+    height: 14px;
+    border: 1px solid;
+    border-color: var(--win98-border-light) var(--win98-border-darker) var(--win98-border-darker) var(--win98-border-light);
+    background-color: var(--win98-button-face);
+    color: var(--win98-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    cursor: pointer;
+  }
+  
+  .message-box-content {
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .message-box-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border: 1px solid var(--win98-border-dark);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .message-box-icon-info {
+    color: white;
+    background-color: var(--win98-blue);
+  }
+  
+  .message-box-icon-error {
+    color: white;
+    background-color: red;
+  }
+  
+  .message-box-icon-warning {
+    color: black;
+    background-color: yellow;
+  }
+  
+  .message-box-icon-success {
+    color: white;
+    background-color: green;
+  }
+  
+  .message-box-icon-question {
+    color: white;
+    background-color: var(--win98-blue);
+  }
+  
+  .message-box-message {
+    flex: 1;
+  }
+  
+  .message-box-buttons {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .message-box-auto-close {
+    margin-top: 10px;
+    font-size: 10px;
+    font-style: italic;
+  }
+  
+  /* Win98 taskbar */
+  .win98-taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    background-color: var(--win98-bg);
+    border-top: 2px solid var(--win98-border-light);
+    display: flex;
+    align-items: center;
+    padding: 0 2px;
+    z-index: 1000;
+  }
+  
+  .taskbar-button {
+    margin-right: 8px;
+  }
+  
+  .taskbar-status {
+    margin-left: auto;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+  
+  .status-ready {
+    color: darkgreen;
+  }
+  
+  .status-loading {
+    color: var(--win98-blue);
+  }
+  
+  /* Generator specific styles */
+  .generator-content {
+    padding: 10px;
+  }
+  
+  .generator-header {
+    margin-bottom: 15px;
+  }
+  
+  .win98-heading {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .win98-text {
+    margin: 0 0 10px 0;
+    font-size: 11px;
+  }
+  
+  .generator-input-group {
+    margin-bottom: 15px;
+  }
+  
+  .generator-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .generator-progress {
+    margin: 15px 0;
+  }
+  
+  .attempts-counter {
+    font-size: 10px;
+    text-align: right;
+    margin-top: 2px;
+  }
+  
+  /* Console window */
+  .console-window {
+    border: 2px solid;
+    border-color: var(--win98-border-darker) var(--win98-border-light) var(--win98-border-light) var(--win98-border-darker);
+    margin-top: 15px;
+  }
+  
+  .console-header {
+    background-color: #000080;
+    color: white;
+    padding: 2px 5px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  
+  .console-content {
+    background-color: black;
+    color: #33ff33;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    padding: 5px;
+    height: 150px;
+    overflow-y: auto;
+    line-height: 1.4;
+  }
+  
+  .console-message {
+    margin-bottom: 2px;
+    white-space: pre-wrap;
+  }
+  
+  /* Success content */
+  .success-content {
+    padding: 5px;
+  }
+  
+  .address-details {
+    margin: 15px 0;
+  }
+  
+  .address-field {
+    margin-bottom: 10px;
+  }
+  
+  .address-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+  
+  .address-value {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    background-color: white;
+    border: 2px solid;
+    border-color: var(--win98-border-darker) var(--win98-border-light) var(--win98-border-light) var(--win98-border-darker);
+    padding: 5px;
+    word-break: break-all;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .secret-key {
+    color: #990000;
+  }
+  
+  /* Copy button */
+  .copy-button {
+    background-color: transparent;
+    border: none;
+    color: var(--win98-blue);
+    cursor: pointer;
+    font-size: 11px;
+    padding: 0 5px;
+    white-space: nowrap;
+  }
+  
+  .copy-button:hover {
+    text-decoration: underline;
+  }
+  
+  .copy-button.copied {
+    color: green;
+  }
+  
+  /* Social share */
+  .social-share-container {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .social-share-label {
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+  
+  .social-share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .win98-window {
+      width: 100% !important;
+      height: calc(100vh - 30px) !important;
+      top: 0 !important;
+      left: 0 !important;
+    }
+    
+    .generator-buttons {
+      flex-direction: column;
+    }
+    
+    .win98-message-box {
+      width: 90%;
+    }
+  }
